@@ -1,31 +1,33 @@
-import ArticleItemList from "@/components/ArticleListItem"
-import { getCategorisedArticles } from "@/lib/articles"
+import { getCategorisedArticles, getArticleData } from "@/lib/articles"
+import ClientHomePage from "../components/ClientHomePage"
+import { CopilotKit } from "@copilotkit/react-core"
 
-const HomePage = () => {
-  const articles = getCategorisedArticles()
+const HomePage = async () => {
+  // Your existing data fetching code
+  const categorisedArticles = getCategorisedArticles()
+  
+  const allArticles = Object.values(categorisedArticles).flat()
+  const articleContents = await Promise.all(
+    allArticles.map(async (article) => {
+      const articleData = await getArticleData(article.id)
+      return {
+        id: articleData.id,
+        title: articleData.title,
+        category: articleData.category,
+        date: articleData.date,
+        contentHtml: articleData.contentHtml,
+        contentText: articleData.contentHtml.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim(),
+      }
+    })
+  )
 
-  console.log(articles)
   return (
-    <section className="mx-auto w-11/12 md:w-1/2 mt-20 flex flex-col gap-16 mb-20">
-      <header className="font-cormorantGaramond font-light text-6xl text-neutral-900 text-center">
-        <h1>Nazmus Ashrafi</h1>
-      </header>
-      <p className="font-cormorantGaramond font-light text-neutral-900 text-center">
-        {"Hi! 👋 I'm an AI researcher based in the UAE."}
-
-  {"I'm currently pursuing at UAE University (UAEU), focusing on language models and code generation. My research interests deeply resonates with building reliable multi-agent systems that can coordinate effectively in real-world environments."}
-      </p>
-      <section className="md:grid md:grid-cols-2 flex flex-col gap-10">
-        {articles !== null &&
-          Object.keys(articles).map((article) => (
-            <ArticleItemList
-              category={article}
-              articles={articles[article]}
-              key={article}
-            />
-          ))}
-      </section>
-    </section>
+    <CopilotKit publicApiKey={process.env.NEXT_PUBLIC_COPILOTKIT_API_KEY}>
+      <ClientHomePage 
+        categorisedArticles={categorisedArticles}
+        articleContents={articleContents}
+      />
+    </CopilotKit>
   )
 }
 
