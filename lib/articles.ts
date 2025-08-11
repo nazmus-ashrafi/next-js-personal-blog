@@ -33,14 +33,16 @@ const getSortedArticles = (): ArticleItem[] => {
     const format = "DD-MM-YYYY"
     const dateOne = moment(a.date, format)
     const dateTwo = moment(b.date, format)
-    if (dateOne.isBefore(dateTwo)) {
+    if (dateOne.isAfter(dateTwo)) {
       return -1
-    } else if (dateTwo.isAfter(dateOne)) {
+    } else if (dateOne.isBefore(dateTwo)) {
       return 1
     } else {
       return 0
     }
   })
+
+
 }
 
 export const getCategorisedArticles = (): Record<string, ArticleItem[]> => {
