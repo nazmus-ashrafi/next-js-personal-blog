@@ -1,6 +1,7 @@
 import { getCategorisedArticles, getArticleData } from "@/lib/articles"
 import ClientHomePage from "../components/ClientHomePage"
 import { CopilotKit } from "@copilotkit/react-core"
+import Footer from "@/components/Footer"
 
 const HomePage = async () => {
   // Your existing data fetching code
@@ -23,10 +24,14 @@ const HomePage = async () => {
 
   return (
     <CopilotKit publicApiKey={process.env.NEXT_PUBLIC_COPILOTKIT_API_KEY}>
-      <ClientHomePage 
+      <div className="App">
+        <ClientHomePage 
         categorisedArticles={categorisedArticles}
         articleContents={articleContents}
-      />
+        />
+        <Footer/>
+      </div>
+      
     </CopilotKit>
   )
 }
