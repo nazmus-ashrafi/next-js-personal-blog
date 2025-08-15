@@ -16,7 +16,7 @@ const Footer = () => {
                 href="https://www.youtube.com/@codingwithnazmus" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-transform hover:scale-110 text-primary"
+                className="transition-transform hover:scale-110"
                 aria-label="YouTube Channel"
                 
                 >
@@ -32,12 +32,35 @@ const Footer = () => {
                 </a>
 
 
-                {/* LinkedIn with correct LinkedIn SVG */}
+                {/* Github icon */}
+                <a
+                href="https://github.com/nazmus-ashrafi" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-transform hover:scale-110"
+                aria-label="Github Profile"
+                >
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="GitHub"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-6 h-6"
+                >
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.016-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.334-1.756-1.334-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.76-1.606-2.665-.304-5.466-1.334-5.466-5.934 0-1.31.468-2.38 1.235-3.22-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.005-.404 1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.655 1.652.243 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.628-5.476 5.928.43.372.812 1.102.812 2.222 0 1.606-.014 2.898-.014 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+                </a>
+
+
+                {/* LinkedIn icon */}
                 <a
                 href="https://www.linkedin.com/in/nazmus-ashrafi/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="transition-transform hover:scale-110 text-primary"
+                className="transition-transform hover:scale-110"
                 aria-label="LinkedIn Profile"
                 >
                 <svg
