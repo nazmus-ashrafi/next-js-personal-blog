@@ -1,6 +1,6 @@
 ---
 title: "Part 1 - The Single LLM Agent"
-category: "Multi-Agent Systems"
+category: "Multi-Agent Systems Blog"
 date: "11-08-2025"
 ---
 

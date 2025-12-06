@@ -14,7 +14,7 @@ const AUTHOR_INFO = {
   university: "UAE University (UAEU)",
   researchFocus: ["language models", "code generation"],
   researchInterests: "building reliable multi-agent systems that can coordinate effectively in real-world environments",
-  bio: "Hi! 👋 I'm an AI researcher based in the UAE. I'm currently at UAE University (UAEU), focusing on language models and code generation. My research interests deeply resonates with building reliable multi-agent systems that can coordinate effectively in real-world environments."
+  bio: "Hi! 👋 I am a software engineer and researcher passionate about building intelligent applications and scalable software systems. I hold a Master’s degree in Software Engineering, with a research focus and hands-on experience in multi-agent LLM systems for automated code generation and AI-driven knowledge work tasks."
 }
 
 type Props = {
@@ -83,7 +83,7 @@ const ClientHomePage = ({ categorisedArticles, articleContents }: Props) => {
         <header className="font-cormorantGaramond font-light text-6xl text-neutral-900 text-center">
           <h1>{AUTHOR_INFO.name}</h1>
         </header>
-        <p className="font-cormorantGaramond font-light text-neutral-900 text-center">
+        <p className="font-cormorantGaramond font-light text-neutral-900 text-center text-2xl">
           {AUTHOR_INFO.bio}
         </p>
         <section className="md:grid md:grid-cols-2 flex flex-col gap-10">

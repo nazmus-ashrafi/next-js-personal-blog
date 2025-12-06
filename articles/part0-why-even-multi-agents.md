@@ -1,6 +1,6 @@
 ---
 title: "Part 0 - The Fundamental Tension: Why AI Systems Face an Impossible Choice"
-category: "Multi-Agent Systems"
+category: "Multi-Agent Systems Blog"
 date: "09-08-2025"
 ---
 
