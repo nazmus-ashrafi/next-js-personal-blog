@@ -1,3 +1,9 @@
+---
+title: "ProfEmail Series Part 4: Email Search by Subject"
+category: "Technical Work"
+date: "7-12-2025"
+---
+
 # Technical Implementation of Email Search by Subject Feature in a Next.js Application
 
 **Author:** Nazmus Ashrafi  
