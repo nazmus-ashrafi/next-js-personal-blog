@@ -31,9 +31,7 @@ The connection flow involves three parties:
 
 ### High-Level Sequence
 
-<p align="center">
-  <img src="../Articles/images/2-Outlook-Email-Connection/2-outlookConnection-highLevelSquence-img0.png" alt="Alt text" width="600">
-</p>
+![Figure 1](/proj1_profEmail_images/2-Outlook-Email-Connection/2-outlookConnection-highLevelSquence-img0.png)
 
 *Figure 1: High-level sequence diagram of the Email Account Connection Process*
 
@@ -43,9 +41,7 @@ The connection flow involves three parties:
 
 ### The Frontend Trigger
 
-<p align="center">
-  <img src="../Articles/images/2-Outlook-Email-Connection/2-outlookConnection-frontend-img1.png" alt="Alt text" width="1200">
-</p>
+![Figure 2](/proj1_profEmail_images/2-Outlook-Email-Connection/2-outlookConnection-frontend-img1.png)
 
 *Figure 2: Frontend architecture showing the flow from UI component - how the backend route is hit and the token is passed from local storage to the backend*
 
@@ -88,9 +84,7 @@ Encoding protects the token and ensures the OAuth server receives the correct va
 
 ---
 
-<p align="center">
-  <img src="../Articles/images/2-Outlook-Email-Connection/2-outlookConnection-backendp1-img2.png" alt="Alt text" width="1200">
-</p>
+![Figure 3](/proj1_profEmail_images/2-Outlook-Email-Connection/2-outlookConnection-backendp1-img2.png)
 
 *Figure 3: Backend architecture showing Part 1: Building the Authorization URL*
 
@@ -145,9 +139,7 @@ async def oauth_authorize(token: str, db: Session):
 
 ## Backend Part 2: Handling the Callback
 
-<p align="center">
-  <img src="../Articles/images/2-Outlook-Email-Connection/2-outlookConnection-backendp2-img3.png" alt="Alt text" width="1800">
-</p>    
+![Figure 4](/proj1_profEmail_images/2-Outlook-Email-Connection/2-outlookConnection-backendp2-img3.png)
 
 *Figure 4: Backend architecture showing Part 2: Handling the Callback*
 

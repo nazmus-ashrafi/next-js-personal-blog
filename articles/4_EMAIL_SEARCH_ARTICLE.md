@@ -26,11 +26,8 @@ date: "7-12-2025"
 9. [Future Enhancements](#future-enhancements)
 10. [Lessons Learned](#lessons-learned)
 
----
-<p align="center">
-  <img src="../Articles/images/4-EmailSearch/fig1-fullarchitecture.png" alt="Alt text" width="1000"><br>
-  <em>Figure 1: Full code map of the email search feature</em>
-</p>
+
+![Figure 1](/proj1_profEmail_images/4-EmailSearch/fig1-fullarchitecture.png)
 
 ## Executive Summary
 
@@ -191,10 +188,7 @@ The search feature consists of three main components working together:
 
 ### Component 1: ConversationSearchBar
 
-<p align="center">
-  <img src="../Articles/images/4-EmailSearch/fig2-comp1-ConversationSearchBar.png" alt="Alt text" width="1000"><br>
-  <em>Figure 2: ConversationSearchBar component</em>
-</p>
+![Figure 2](/proj1_profEmail_images/4-EmailSearch/fig2-comp1-ConversationSearchBar.png)
 
 **File**: `webapp/frontend/components/emails/ConversationSearchBar.tsx`
 
@@ -340,10 +334,7 @@ The component uses Tailwind CSS with a dark theme matching my application's desi
 
 ### Component 2: ConversationSidebar (Modified)
 
-<p align="center">
-  <img src="../Articles/images/4-EmailSearch/fig3-comp2-ConversationSideBar.png" alt="Alt text" width="1000"><br>
-  <em>Figure 3: ConversationSidebar component</em>
-</p>
+![Figure 3](/proj1_profEmail_images/4-EmailSearch/fig3-comp2-ConversationSideBar.png)
 
 **File**: `webapp/frontend/components/emails/ConversationSidebar.tsx`
 
@@ -503,10 +494,7 @@ Can migrate to server-side search if conversation count exceeds ~1,000.  ⚠️
 
 ### Component 3: EmailDetailPage (Converted and Enhanced)
 
-<p align="center">
-  <img src="../Articles/images/4-EmailSearch/fig4-comp3-EmailDetailsPage.png" alt="Alt text" width="1000"><br>
-  <em>Figure 4: EmailDetailPage component</em>
-</p>
+![Figure 4](/proj1_profEmail_images/4-EmailSearch/fig4-comp3-EmailDetailsPage.png)
 
 **File**: `webapp/frontend/app/emails/[id]/page.tsx`
 

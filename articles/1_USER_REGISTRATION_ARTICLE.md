@@ -48,10 +48,7 @@ The registration flow spans multiple layers of abstraction, each with a specific
 Before diving into the details, let's visualize the high-level journey:
 
 
-<!-- ![Alt text](../Articles/images/1-auth/1-auth-highLevelSquence-img0.png) -->
-<p align="center">
-  <img src="/proj1_profEmail_images/1-auth/1-auth-highLevelSquence-img0.png" alt="Alt text" width="600">
-</p>
+![Figure 1](/proj1_profEmail_images/1-auth/1-auth-highLevelSquence-img0.png)
 
 *Figure 1: High-level sequence diagram of the registration process*
 
@@ -88,9 +85,7 @@ This architecture provides several benefits:
 
 ### Frontend Flow Diagram
 
-<p align="center">
-  <img src="../Articles/images/1-auth/1-auth-frontend-img1.png" alt="Alt text" width="1200">
-</p>
+![Figure 2](/proj1_profEmail_images/1-auth/1-auth-frontend-img1.png)
 
 *Figure 2: Frontend architecture showing the flow from UI component through Context and API clients to the backend*
 
@@ -377,9 +372,7 @@ This separation ensures that business logic is decoupled from HTTP concerns, mak
 
 ### Backend Flow Diagram
 
-<p align="center">
-  <img src="../Articles/images/1-auth/1-auth-backend-img2.png" alt="Alt text" width="1200">
-</p>
+![Figure 3](/proj1_profEmail_images/1-auth/1-auth-backend-img2.png)
 *Figure 3: Backend architecture showing the flow from API endpoint through validation, service layer, and database operations*
 
 ---
