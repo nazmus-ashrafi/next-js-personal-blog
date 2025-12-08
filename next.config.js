@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'standalone', // Optimize for serverless deployment
-    experimental: {
-        optimizePackageImports: ['lucide-react', 'motion'], // Tree-shake large packages
+    output: 'export', // Enable static export
+    images: {
+        unoptimized: true, // Required for static export
     },
+    trailingSlash: true, // Better for static hosting
 }
 
 module.exports = nextConfig

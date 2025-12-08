@@ -9,7 +9,7 @@ import type { ArticleItem, CategoryWithSubcategories, HierarchicalArticles } fro
 
 const articlesDirectory = path.join(process.cwd(), "articles")
 
-const getSortedArticles = (): ArticleItem[] => {
+export const getSortedArticles = (): ArticleItem[] => {
   // Reading the files in the files directory and Filtering for md files only
   const fileNames = fs.readdirSync(articlesDirectory).filter(fileName => fileName.endsWith('.md'))
 
