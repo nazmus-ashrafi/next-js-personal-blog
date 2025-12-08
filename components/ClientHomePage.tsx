@@ -1,10 +1,11 @@
 "use client"
 
-import ArticleItemList from "@/components/ArticleListItem"
 import { CopilotPopup } from "@copilotkit/react-ui"
 import { useCopilotReadable } from "@copilotkit/react-core"
 import "@copilotkit/react-ui/styles.css"
-import type { ArticleItem } from "@/types"
+import type { ArticleItem, HierarchicalArticles } from "@/types"
+import CategoryTree from "@/components/CategoryTree"
+
 
 // Author information - single source of truth about author
 const AUTHOR_INFO = {
@@ -18,7 +19,7 @@ const AUTHOR_INFO = {
 }
 
 type Props = {
-  categorisedArticles: Record<string, ArticleItem[]>
+  hierarchicalArticles: HierarchicalArticles
   articleContents: Array<{
     id: string
     title: string
@@ -29,7 +30,7 @@ type Props = {
   }>
 }
 
-const ClientHomePage = ({ categorisedArticles, articleContents }: Props) => {
+const ClientHomePage = ({ hierarchicalArticles, articleContents }: Props) => {
 
   // Make personal information readable to Copilot
   useCopilotReadable({
@@ -40,7 +41,7 @@ const ClientHomePage = ({ categorisedArticles, articleContents }: Props) => {
   // Make articles structure readable to Copilot
   useCopilotReadable({
     description: "The categorised articles structure with titles, dates, and categories",
-    value: JSON.stringify(categorisedArticles, null, 2),
+    value: JSON.stringify(hierarchicalArticles, null, 2),
   });
 
   // Make article contents readable to Copilot
@@ -64,11 +65,11 @@ const ClientHomePage = ({ categorisedArticles, articleContents }: Props) => {
     description: "Summary of the blog: total articles, categories, and recent topics",
     value: JSON.stringify({
       totalArticles: articleContents.length,
-      categories: Object.keys(categorisedArticles),
+      categories: Object.keys(hierarchicalArticles),
       articlesByCategory: Object.fromEntries(
-        Object.entries(categorisedArticles).map(([category, articles]) => [
+        Object.entries(hierarchicalArticles).map(([category, articles]) => [
           category,
-          articles.length
+          articles.subcategories.length + articles.uncategorizedArticles.length
         ])
       ),
       recentArticles: articleContents
@@ -79,22 +80,16 @@ const ClientHomePage = ({ categorisedArticles, articleContents }: Props) => {
 
   return (
     <>
-      <section className="mx-auto w-11/12 md:w-1/2 mt-20 flex flex-col gap-16 mb-20">
-        <header className="font-cormorantGaramond font-light text-6xl text-neutral-900 text-center">
+      <section className="mx-auto w-11/12 md:w-3/4 lg:w-2/3 mt-20 flex flex-col gap-16 mb-20">
+        <header className="font-cormorantGaramond font-light text-6xl text-stone-100 text-center">
           <h1>{AUTHOR_INFO.name}</h1>
         </header>
-        <p className="font-cormorantGaramond font-light text-neutral-900 text-center text-2xl">
+        <p className="font-cormorantGaramond font-light text-stone-300 text-center text-2xl">
           {AUTHOR_INFO.bio}
         </p>
-        <section className="md:grid md:grid-cols-2 flex flex-col gap-10">
-          {Object.keys(categorisedArticles).map((category) => (
-            <ArticleItemList
-              category={category}
-              articles={categorisedArticles[category]}
-              key={category}
-            />
-          ))}
-        </section>
+
+        {/* Tree-based category layout */}
+        <CategoryTree hierarchicalArticles={hierarchicalArticles} />
       </section>
       <CopilotPopup />
     </>

@@ -35,4 +35,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-DEVLOG.md
+# DEVLOG.md
+private_articles

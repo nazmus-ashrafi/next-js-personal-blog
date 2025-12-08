@@ -5,13 +5,13 @@ import moment from "moment"
 import { remark } from "remark"
 import html from "remark-html"
 
-import type { ArticleItem } from "@/types"
+import type { ArticleItem, CategoryWithSubcategories, HierarchicalArticles } from "@/types"
 
 const articlesDirectory = path.join(process.cwd(), "articles")
 
 const getSortedArticles = (): ArticleItem[] => {
   // Reading the files in the files directory and Filtering for md files only
-  const fileNames = fs.readdirSync(articlesDirectory).filter(fileName => fileName.endsWith('.md'))  
+  const fileNames = fs.readdirSync(articlesDirectory).filter(fileName => fileName.endsWith('.md'))
 
   const allArticlesData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, "")
@@ -26,6 +26,7 @@ const getSortedArticles = (): ArticleItem[] => {
       title: matterResult.data.title,
       date: matterResult.data.date,
       category: matterResult.data.category,
+      subcategory: matterResult.data.subcategory, // Extracting the subcategory field from article frontmatter
     }
   })
 
@@ -42,7 +43,6 @@ const getSortedArticles = (): ArticleItem[] => {
     }
   })
 
-
 }
 
 export const getCategorisedArticles = (): Record<string, ArticleItem[]> => {
@@ -50,8 +50,8 @@ export const getCategorisedArticles = (): Record<string, ArticleItem[]> => {
   const sortedArticles = getSortedArticles()
   const categorisedArticles: Record<string, ArticleItem[]> = {}
 
-  sortedArticles.forEach((article)=>{
-    if(!categorisedArticles[article.category]){
+  sortedArticles.forEach((article) => {
+    if (!categorisedArticles[article.category]) {
       categorisedArticles[article.category] = []
     }
     categorisedArticles[article.category].push(article)
@@ -81,4 +81,43 @@ export const getArticleData = async (id: string) => {
       "DD-MM-YYYY"
     ).format("MMMM DD YYYY"),
   }
+}
+
+
+// Building a nested structure: categories → subcategories → articles
+export const getHierarchicalArticles = (): HierarchicalArticles => {
+  const sortedArticles = getSortedArticles()
+  const categoriesMap = new Map<string, CategoryWithSubcategories>()
+  sortedArticles.forEach((article) => {
+    // Get or create category
+    if (!categoriesMap.has(article.category)) {
+      categoriesMap.set(article.category, {
+        category: article.category,
+        subcategories: [],
+        uncategorizedArticles: []
+      })
+    }
+    const categoryData = categoriesMap.get(article.category)!
+    if (article.subcategory) {
+      // Find or create subcategory
+      let subcategoryGroup = categoryData.subcategories.find(
+        sub => sub.subcategory === article.subcategory
+      )
+
+      if (!subcategoryGroup) {
+        subcategoryGroup = {
+          subcategory: article.subcategory,
+          articles: []
+        }
+        categoryData.subcategories.push(subcategoryGroup)
+      }
+
+      subcategoryGroup.articles.push(article)
+    } else {
+      // Article has no subcategory
+      categoryData.uncategorizedArticles.push(article)
+    }
+  })
+  // Return the complete hierarchy of Articles
+  return Array.from(categoriesMap.values())
 }

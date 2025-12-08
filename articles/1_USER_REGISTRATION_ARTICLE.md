@@ -1,7 +1,8 @@
 ---
-title: "ProfEmail Series Part 2: Understanding User Registration: A Full-Stack Journey"
+title: "ProfEmail Series Part 1: Understanding User Registration: A Full-Stack Journey"
 category: "Technical Work"
 date: "25-11-2025"
+subcategory: "ProfEmail Series"
 ---
 
 

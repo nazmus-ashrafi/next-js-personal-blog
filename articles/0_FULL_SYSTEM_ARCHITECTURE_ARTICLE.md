@@ -2,6 +2,7 @@
 title: "ProfEmail Series Part 0: Complete System Architecture of an AI Email Agent for Professors"
 category: "Technical Work"
 date: "23-11-2025"
+subcategory: "ProfEmail Series"
 ---
 
 # ProfEmail - AI Email Agent for Professors - Complete System Architecture

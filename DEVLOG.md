@@ -44,4 +44,22 @@ The article series provides comprehensive documentation of a full-stack AI email
 Each article includes code snippets, architecture diagrams, sequence flows, and security considerations, making it suitable for portfolio presentation and technical documentation.
 
 
+## Commit 12 - 2025-12-08 - Hierarchical Subcategory System with Kibo UI Tree and Dark Theme
+
+### Commit Message
+```
+git commit -m "feat: Implement hierarchical blog categories with Kibo UI Tree and dark theme
+
+- Add 3-level hierarchy: Categories → Subcategories → Articles
+- Integrate Kibo UI Tree component with animated expand/collapse
+- Implement industrial dark theme with Apple SF Pro typography
+- Add subcategory field to all ProfEmail articles
+- Update type system and create getHierarchicalArticles() function
+- Apply stone-950 dark background across entire page
+```
+
+### Summary
+Transformed the blog from a flat 2-column category layout to a sophisticated hierarchical tree structure using Kibo UI components. Enhanced the type system with `SubcategoryGroup`, `CategoryWithSubcategories`, and `HierarchicalArticles` interfaces, and implemented `getHierarchicalArticles()` function in `lib/articles.ts` to build nested category → subcategory → articles structure. Created `components/CategoryTree.tsx` with TreeProvider, TreeView, and TreeNode components featuring animated expand/collapse, folder/file icons, and responsive date badges. Applied comprehensive dark theme with stone-950 background across html, body, and app wrapper elements, stone-900 gradient for tree container, and Apple SF Pro font stack for modern typography. Updated all 5 ProfEmail articles with `subcategory: "ProfEmail Series"` field. Color system uses stone-100/200/300 for text hierarchy and amber-400/500 for accent colors with smooth hover transitions. Includes comprehensive technical documentation in `commit12 - hierarchical subtree blog kibo -TECHNICAL_DOCUMENTATION.md`.
+
+
 

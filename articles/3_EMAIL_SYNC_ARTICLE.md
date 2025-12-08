@@ -2,6 +2,7 @@
 title: "ProfEmail Series Part 3: Email Sync: The Delta Sync Engine"
 category: "Technical Work"
 date: "2-12-2025"
+subcategory: "ProfEmail Series"
 ---
 
 

@@ -1,7 +1,8 @@
 ---
-title: "ProfEmail Series Part 2.5: OAuth2 Email Account Connection: Securely Integrating Microsoft Outlook"
+title: "ProfEmail Series Part 2: OAuth2 Email Account Connection: Securely Integrating Microsoft Outlook"
 category: "Technical Work"
 date: "26-11-2025"
+subcategory: "ProfEmail Series"
 ---
 
 # OAuth2 Email Account Connection: Securely Integrating Microsoft Outlook
