@@ -151,7 +151,9 @@
     @apply border-border;
   }
 
+  html,
   body {
-    @apply bg-stone-950 text-stone-100;
+    @apply bg-[#171717] text-sky-100 min-h-screen m-0 p-0;
+    background-color: #171717 !important;
   }
 }

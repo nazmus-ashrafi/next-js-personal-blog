@@ -29,7 +29,7 @@ const HomePage = async () => {
 
   return (
     <CopilotKit publicApiKey={process.env.NEXT_PUBLIC_COPILOTKIT_API_KEY}>
-      <div className="App bg-stone-950 min-h-screen">
+      <div className="App min-h-screen">
         <ClientHomePage
           hierarchicalArticles={hierarchicalArticles}
           articleContents={articleContents}

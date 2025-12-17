@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-stone-950">
+    <html lang="en">
       <body
-        className={`${cormorantGaramond.variable} ${poppins.variable} bg-stone-950`}
+        className={`${cormorantGaramond.variable} ${poppins.variable} min-h-screen`}
       >
         {children}
       </body>

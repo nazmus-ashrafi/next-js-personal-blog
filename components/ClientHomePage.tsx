@@ -4,7 +4,7 @@ import { CopilotPopup } from "@copilotkit/react-ui"
 import { useCopilotReadable } from "@copilotkit/react-core"
 import "@copilotkit/react-ui/styles.css"
 import type { ArticleItem, HierarchicalArticles } from "@/types"
-import CategoryTree from "@/components/CategoryTree"
+import ProjectCards from "@/components/ProjectCards"
 
 
 // Author information - single source of truth about author
@@ -15,7 +15,7 @@ const AUTHOR_INFO = {
   university: "UAE University (UAEU)",
   researchFocus: ["language models", "code generation"],
   researchInterests: "building reliable multi-agent systems that can coordinate effectively in real-world environments",
-  bio: "Hi! 👋 I am a software engineer and researcher passionate about building intelligent applications and scalable software systems. I hold a Master’s degree in Software Engineering, with a research focus and hands-on experience in multi-agent LLM systems for automated code generation and AI-driven knowledge work tasks."
+  bio: "Hi! 👋 I am a software engineering graduate, educator and researcher with a strong interest in intelligent AI powered applications. I hold a Master’s degree in Software Engineering. My research focuses on large language model (LLM) systems, automated code generation, and AI-driven knowledge work."
 }
 
 type Props = {
@@ -81,15 +81,15 @@ const ClientHomePage = ({ hierarchicalArticles, articleContents }: Props) => {
   return (
     <>
       <section className="mx-auto w-11/12 md:w-3/4 lg:w-2/3 mt-20 flex flex-col gap-16 mb-20">
-        <header className="font-cormorantGaramond font-light text-6xl text-stone-100 text-center">
+        <header className="font-cormorantGaramond font-light text-6xl text-blue-100 text-center">
           <h1>{AUTHOR_INFO.name}</h1>
         </header>
-        <p className="font-cormorantGaramond font-light text-stone-300 text-center text-2xl">
+        <p className="font-cormorantGaramond font-light text-blue-200 text-center text-2xl">
           {AUTHOR_INFO.bio}
         </p>
 
-        {/* Tree-based category layout */}
-        <CategoryTree hierarchicalArticles={hierarchicalArticles} />
+        {/* Project Cards - Expandable cards with embedded article trees */}
+        <ProjectCards hierarchicalArticles={hierarchicalArticles} />
       </section>
       <CopilotPopup />
     </>

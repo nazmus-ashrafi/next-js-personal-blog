@@ -1,6 +1,6 @@
 ---
 title: "Architecture of this website/blog"
-category: "Technical Work"
+category: "This Website"
 date: "13-08-2025"
 ---
 
