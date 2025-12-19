@@ -3,8 +3,9 @@
 import { useState } from "react"
 import Link from "next/link"
 import moment from "moment"
-import { Folder, FolderOpen, FileText, Calendar, ChevronDown, ChevronRight, GraduationCap, ExternalLink, Github } from "lucide-react"
+import { Folder, FolderOpen, FileText, Calendar, ChevronDown, ChevronRight, GraduationCap, ExternalLink, Github, Video } from "lucide-react"
 import type { HierarchicalArticles } from "@/types"
+import VideoModal from "./VideoModal"
 
 interface ProjectCardsProps {
     hierarchicalArticles: HierarchicalArticles
@@ -32,6 +33,7 @@ interface ProjectMetadata {
     image?: string
     live?: string
     github?: string
+    video?: string        // YouTube video URL
     // Paper-specific fields
     paper?: {
         pdf?: string          // Link to PDF
@@ -53,7 +55,8 @@ const PROJECT_METADATA: Record<string, ProjectMetadata> = {
         tags: ["Python", "FastAPI", "React", "Next.js", "TypeScript", "LangGraph", "PostgreSQL"],
         image: "/proj1_profEmail_images/profemail.png",
         live: "https://ai-email-coach-web-app.vercel.app",
-        github: "https://github.com/nazmus-ashrafi/AIEmailCoach-WebApp"
+        github: "https://github.com/nazmus-ashrafi/AIEmailCoach-WebApp",
+        video: "https://www.youtube.com/watch?v=BoGG3bLY-7A"
     },
     "Paper on LLM Code Generation": {
         title: "Enhancing LLM Code Generation: Multi-Agent Collaboration and Runtime Debugging",
@@ -99,6 +102,7 @@ const getMetadata = (title: string): ProjectMetadata | undefined => {
 
 const ProjectCards = ({ hierarchicalArticles }: ProjectCardsProps) => {
     const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set())
+    const [videoUrl, setVideoUrl] = useState<string | null>(null)
 
     const toggleCard = (cardId: string) => {
         console.log('Toggling card:', cardId)
@@ -273,6 +277,19 @@ const ProjectCards = ({ hierarchicalArticles }: ProjectCardsProps) => {
                                                 Live
                                             </a>
                                         )}
+                                        {getMetadata(project.title)?.video && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation()
+                                                    setVideoUrl(getMetadata(project.title)?.video || null)
+                                                }}
+                                                className="inline-flex items-center gap-1 rounded-full border border-sky-500/30 bg-sky-500/10 px-2.5 py-0.5 text-xs font-medium text-sky-400 transition-colors hover:bg-sky-500/20"
+                                                title="Watch video"
+                                            >
+                                                {/* <Video className="h-3 w-3" /> */}
+                                                Video
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
 
@@ -442,6 +459,14 @@ const ProjectCards = ({ hierarchicalArticles }: ProjectCardsProps) => {
                     )
                 })}
             </div>
+
+            {/* Video Modal */}
+            {videoUrl && (
+                <VideoModal
+                    url={videoUrl}
+                    onClose={() => setVideoUrl(null)}
+                />
+            )}
         </section>
     )
 }
