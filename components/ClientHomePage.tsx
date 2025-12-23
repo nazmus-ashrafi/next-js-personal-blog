@@ -5,6 +5,7 @@ import { useCopilotReadable } from "@copilotkit/react-core"
 import "@copilotkit/react-ui/styles.css"
 import type { ArticleItem, HierarchicalArticles } from "@/types"
 import ProjectCards from "@/components/ProjectCards"
+import SocialLinks from "@/components/SocialLinks"
 
 
 // Author information - single source of truth about author
@@ -15,7 +16,7 @@ const AUTHOR_INFO = {
   university: "UAE University (UAEU)",
   researchFocus: ["language models", "code generation"],
   researchInterests: "building reliable multi-agent systems that can coordinate effectively in real-world environments",
-  bio: "Hi! 👋 I am a software engineering graduate, educator and researcher with a strong interest in intelligent AI powered applications. I hold a Master’s degree in Software Engineering. My research focuses on large language model (LLM) systems, automated code generation, and AI-driven knowledge work."
+  bio: "Hi! 👋 I am a software engineering graduate, educator and researcher with a strong interest in intelligent AI powered applications. I have a Master’s degree in Software Engineering. My research focuses on large language model (LLM) systems, automated code generation, and AI-driven knowledge work."
 }
 
 type Props = {
@@ -83,6 +84,7 @@ const ClientHomePage = ({ hierarchicalArticles, articleContents }: Props) => {
       <section className="mx-auto w-11/12 md:w-3/4 lg:w-2/3 mt-20 flex flex-col gap-16 mb-20">
         <header className="font-cormorantGaramond font-light text-6xl text-blue-100 text-center">
           <h1>{AUTHOR_INFO.name}</h1>
+          <SocialLinks className="justify-center mt-4 text-blue-200" />
         </header>
         <p className="font-cormorantGaramond font-light text-blue-200 text-center text-2xl">
           {AUTHOR_INFO.bio}
